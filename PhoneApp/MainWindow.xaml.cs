@@ -27,8 +27,10 @@ namespace PhoneApp
         }
         private void InputNum(string num)
         {
-
-            PhoneScreen.Text += num;
+            if (!PhoneScreen.Text.Contains("Вызов..."))
+            {
+                PhoneScreen.Text += num;
+            }
         }
         private void One_Click(object sender, RoutedEventArgs e)
         {
@@ -100,6 +102,8 @@ namespace PhoneApp
             }
             else
             {
+                PhoneScreen.FontSize = 40;
+                PhoneScreen.Padding = new Thickness(0, 20, 0, 0);
                 PhoneScreen.Text = "";
                 ToCall.Background = Brushes.LawnGreen;
             }
